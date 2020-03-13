@@ -1,0 +1,123 @@
+body{
+  //background: #f6c28b;
+  font-family: 'Roboto', 'Calibri', sans-serif;
+}
+
+.giphyApp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchButton{
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBarBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  width: 35%;
+  height: 60px;
+  border: 2px solid black;
+  transition: all ease 0.3s;
+}
+.searchBarBox:focus-within{
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.1);
+}
+.wen, .cross {
+  height: 20px;
+  cursor: pointer;
+}
+.cross{
+  visibility: hidden;
+  opacity: 0.5;
+}
+.cross:hover{
+  opacity: 1;
+}
+#loader{
+  visibility: hidden;
+  animation: circle 2s linear infinite;
+}
+#searchBar{
+  border: none;
+  font-size: 1.6rem;
+  width: 70%;
+  font-weight: 700;
+}
+#gifBox, #favoritedGifBox{
+  display: flex;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 75%;
+  list-style: none;
+}
+#gifBox img, #favoritedGifBox img{
+  max-height: 300px;
+  max-width: 300px;
+}
+#gifBox img:hover, #favoritedGifBox img:hover{
+  opacity: 0.8;
+}
+.heart{
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heart img{
+  height: 25px;
+}
+
+li:hover > .heart{
+  opacity: 1;
+}
+a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  font-size:40px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+a:after {
+  content: " ";
+  background: #000;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 0;
+  position: absolute;
+  transition: width .5s ease-in-out;
+
+}
+a:hover:after {
+  width: 100%;
+}
+
+@keyframes circle{
+  0%{
+    transform:rotate(0deg)
+
+  }
+  100%{
+    transform:rotate(360deg)
+  }
+}
+
+.heart path{
+  fill: red;
+}
