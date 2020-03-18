@@ -10,29 +10,32 @@
     <title>Document</title>
 </head>
 <body>
-<a href="favorited.html">Favoris</a>
-    <div class="giphyApp">
-        <div class ="searchButton">
+<button type="button" class="favs">Favoris</button>
+<div class="giphyApp">
+    <div class="mainpage">
+        <!--<div class ="searchButton">
             <label for="copySearchBar"><img src="./img/search.svg" alt="search" class="wen"></label>
             <input type="search" id="copySearchBar" placeholder="What are you searching for ? ">
             <img src="./img/cross.svg" alt="close" class="copyCross" id="copyCross">
-        </div>
-        <h1>Giphy sique quantique App</h1>
+        </div>-->
+        <h1>Giphy App</h1>
 
-        <div class="searchBarBox">
-            <label for="searchBar"><img src="./img/search.svg" alt="search" class="wen"></label>
-            <input type="search" id="searchBar" placeholder="What are you searching for ? ">
-            <img src="./img/cross.svg" alt="close" class="cross" id="cross">
+        <div class="search">
+            <label for="search--input"><img src="./img/search.svg" alt="search" class="wen"></label>
+            <input type="search" id="search--input" placeholder="What are you searching for ? ">
+            <img src="./img/cross.svg" alt="close" class="search--cross" id="search--cross">
         </div>
 
-        <img id="loader" src="img/loader.svg" alt="loader">
+        <div class="loader"><div></div><div></div></div>
 
         <p id="results"></p>
-        <!--<object type="image/svg+xml" data="./img/heart.svg" width="64" height="64" id="test"></object>-->
-        <div id="gifBox" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+        <div id="gif_box">
 
         </div>
     </div>
-
+    <div class="favorites">
+        <div class="favorites--gif_box"></div>
+    </div>
+</div>
 </body>
 </html>
