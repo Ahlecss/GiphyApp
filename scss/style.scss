@@ -1,14 +1,18 @@
-body{
+body, html{
   //background: #f6c28b;
+  height: 100%;
   font-family: 'Roboto', 'Calibri', sans-serif;
 }
-
-.giphyApp{
+h1{
+  font-size: 58px;
+}
+.mainpage, .favorites{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+/*
 .searchButton{
   border: 2px solid black;
   background-color: white;
@@ -18,8 +22,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.searchBarBox {
+}*/
+.search{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -30,31 +34,44 @@ body{
   border: 2px solid black;
   transition: all ease 0.3s;
 }
-.searchBarBox:focus-within{
+.search:focus-within{
   box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.1);
 }
-.wen, .cross {
+.wen, .search--cross {
   height: 20px;
   cursor: pointer;
 }
-.cross{
+.search--cross{
   visibility: hidden;
   opacity: 0.5;
 }
-.cross:hover{
+.search--cross:hover{
   opacity: 1;
 }
-#loader{
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
   visibility: hidden;
-  animation: circle 2s linear infinite;
 }
-#searchBar{
+.loader div {
+  position: absolute;
+  border: 4px solid #000;
+  opacity: 1;
+  border-radius: 50%;
+  animation: loader 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.loader div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+#search--input{
   border: none;
   font-size: 1.6rem;
   width: 70%;
   font-weight: 700;
 }
-#gifBox, #favoritedGifBox{
+#gif_box, .favorites--gif_box{
   display: flex;
   column-gap: 10px;
   justify-content: center;
@@ -63,12 +80,11 @@ body{
   width: 75%;
   list-style: none;
 }
-#gifBox img, #favoritedGifBox img{
+#gif_box img, .favorites--gif_box img{
   max-height: 300px;
   max-width: 300px;
-}
-#gifBox img:hover, #favoritedGifBox img:hover{
-  opacity: 0.8;
+  cursor: pointer;
+  border-radius: 25px;
 }
 .heart{
   opacity: 0;
@@ -78,46 +94,74 @@ body{
   align-items: center;
 }
 .heart img{
-  height: 25px;
+  height: 100px;
 }
-
+li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 li:hover > .heart{
   opacity: 1;
 }
-a {
+button {
   color: #000;
   text-decoration: none;
   position: relative;
   font-size:40px;
   font-weight: 900;
   letter-spacing: -2px;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
-a:after {
+button:after {
   content: " ";
   background: #000;
   height: 2px;
-  left: 0;
+  right: 0;
   bottom: 0;
   display: block;
-  width: 0;
+  width: 100%;
   position: absolute;
   transition: width .5s ease-in-out;
-
 }
-a:hover:after {
-  width: 100%;
+button:hover:after {
+  width: 0;
 }
 
-@keyframes circle{
-  0%{
-    transform:rotate(0deg)
+button > img{
+  height: 30px;
+}
 
+.favorites--gif_box{
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+
+.isOpen{
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transition: all ease 0.5s;
+}
+.isClosed{
+  display: none;
+  transition: all ease 0.3s;
+}
+
+@keyframes loader {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
   }
-  100%{
-    transform:rotate(360deg)
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
   }
-}
-
-.heart path{
-  fill: red;
 }
